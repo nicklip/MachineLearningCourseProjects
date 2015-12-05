@@ -1,0 +1,378 @@
+0.1*0.5+0.9*0.5
+2*0.5*0.1
+0.1*0.6+0.9*0.4
+(100/58)*0.4*0.1
+(100/58)*0.6*0.9
+require('EvCombR')
+mass_1 = c(rep(0.8, 9), 0.2, 0.2)
+mass_1
+mass_0 = c(rep(0.2, 9), 0.8, 0.8)
+stateSpace <- c("0", "1")#
+    masses = vector("list", length(test[1,])-1)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:(length(test[1,])-1)){#
+      masses[[j]] <- mass(list("0"=mass_0[1,j], "1"=mass_1[1,j], stateSpace) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    mass_combo = dComb(masses)
+stateSpace <- c("0", "1")#
+    masses = vector("list", 11)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:(length(test[1,])-1)){#
+      masses[[j]] <- mass(list("0"=mass_0[1,j], "1"=mass_1[1,j], stateSpace) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    mass_combo = dComb(masses)
+mass_0
+stateSpace <- c("0", "1")#
+    masses = vector("list", 11)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:(length(test[1,])-1)) {#
+      masses[[j]] <- mass(list("0"=mass_0[1,j], "1"=mass_1[1,j], stateSpace)) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    mass_combo = dComb(masses)
+stateSpace <- c("0", "1")#
+    masses = vector("list", 11)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:11) {#
+      masses[[j]] <- mass(list("0"=mass_0[1,j], "1"=mass_1[1,j], stateSpace)) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    mass_combo = dComb(masses)
+stateSpace <- c("0", "1")#
+    masses = vector("list", 11)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:11) {#
+      masses[[j]] <- mass(list("0"=mass_0[j], "1"=mass_1[j], stateSpace)) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    mass_combo = dComb(masses)
+length(mass_0)
+length(mass_1)
+masses
+mass_0[1]
+stateSpace <- c("0", "1")#
+    masses = vector("list", 11)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:11) {#
+      masses[[j]] <- mass(list("0"=mass_0[j], "1"=mass_1[j]), stateSpace) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    mass_combo = dComb(masses)
+mass_combo
+prior_dist = mass(list("0"=0.2, "1"=0.8), stateSpace)#
+	stateSpace <- c("0", "1")#
+    masses = vector("list", 11)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:11) {#
+      masses[[j]] <- mass(list("0"=mass_0[j], "1"=mass_1[j]), stateSpace) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    mass_combo = mComb(masses, prior_dist)
+prior_dist
+prior_dist@focal$0
+prior_dist@focal$'0'
+mass_combo = mComb(masses, list("0"=prior_dist@focal$'0', "1"=rior_dist@focal$'1'))
+prior_dist = mass(list("0"=0.2, "1"=0.8), stateSpace)#
+	stateSpace <- c("0", "1")#
+    masses = vector("list", 11)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:11) {#
+      masses[[j]] <- mass(list("0"=mass_0[j], "1"=mass_1[j]), stateSpace) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    mass_combo = mComb(masses, list("0"=prior_dist@focal$'0', "1"=prior_dist@focal$'1'))
+mass_combo
+mass_0
+prior_dist = mass(list("0"=0.2, "1"=0.8), stateSpace)#
+	stateSpace <- c("0", "1")#
+    masses = vector("list", 11)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:11) {#
+      masses[[j]] <- mass(list("0"=mass_0[j], "1"=mass_1[j]), stateSpace) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    mass_combo = mComb(masses, list("0"=prior_dist@focal$'1', "1"=prior_dist@focal$'0'))
+mass_combo
+prior_dist@focal$'1'
+prior_dist@focal$'0'
+masses
+mass_combo_0 = mComb(masses, list("0"=0.2, "1"=0.8)) #
+    mass_combo_1 = dComb(masses)
+mass_combo_0
+mass_combo_1
+mass_combo_0 = mComb(masses, list("0"=0.8, "1"=0.2)) #
+    mass_combo_1 = dComb(masses)
+mass_combo_0
+# state space#
+stateSpace <- c("a", "b", "c")#
+# mass functions#
+m1 <- mass(list("a"=0.1, "a/b/c"=0.9), stateSpace)#
+m2 <- mass(list("a"=0.2, "a/b/c"=0.8), stateSpace)
+mComb(m1, m2, list("a"=0.1, "b"=0.1, "c"=0.8))
+stateSpace <- c("0", "1")#
+    masses = vector("list", 11)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:11) {#
+      masses[[j]] <- mass(list("0"=mass_0[j], "1"=mass_1[j]), stateSpace) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    #mass_combo_0 = mComb(masses, list("0"=0.2, "1"=0.8)) #
+    mass_combo_1 = dComb(masses)
+mass_combo_1
+mass_0 = c(0.9, 0.1, 0.9, 0.1)
+mass_1 = c(0.1, 0.9, 0.1, 0.9)
+stateSpace <- c("0", "1")#
+    masses = vector("list", 11)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:11) {#
+      masses[[j]] <- mass(list("0"=mass_0[j], "1"=mass_1[j]), stateSpace) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    #mass_combo_0 = mComb(masses, list("0"=0.2, "1"=0.8)) #
+    mass_combo_1 = dComb(masses)
+#prior_dist = mass(list("0"=0.2, "1"=0.8), stateSpace)#
+	stateSpace <- c("0", "1")#
+    masses = vector("list", 4)#
+    #Getting mass values for each feature of the example#
+    for(j in 1:4) {#
+      masses[[j]] <- mass(list("0"=mass_0[j], "1"=mass_1[j]), stateSpace) #
+    }#
+    #Using the modified Dempster combination to combine the prior distribution (the logistic probs)#
+    #with the mass values from the features #
+    #mass_combo_0 = mComb(masses, list("0"=0.2, "1"=0.8)) #
+    mass_combo_1 = dComb(masses)
+mass_combo_1
+install.packages('rmarkdown')
+#time domain#
+library(fpp)#
+library(astsa)#
+library(forecast)#
+str(ausbeer)#
+plot(ausbeer)#
+#the mean is not constant, the first diff would be useful#
+plot(diff(ausbeer))#
+#the autovariance of the series looks like it depends on time, a log might help#
+plot(diff(log(ausbeer)))#
+#the plot of that looks better, I'll try some modeling now#
+acf2(diff(log(ausbeer)))#
+#definitely a seasonal component, at least one every two quarters#
+#Since the seasonal compenent tails off, it probably involves an AR(P)#
+#the speed (slow) of this decay suggests a seasonal difference#
+auto.arima(log(ausbeer))#
+#arima(1,1,2)(0,1,1)[4] interesting#
+#I'll start with trying a arima(0,1,1)(0,1,1) since the inbetween seasonal parts#
+#of the PACF are tailing off, a MA(q) must be involved#
+sarima(log(ausbeer), 0,1,1, 0,1,1, 4)#
+#ACF still looks like more than white noise, lets take a closer look#
+#The ACF is cutting off after the first lag so let's try MA(2)#
+sarima(log(ausbeer), 0,1,2, 0,1,1, 4)#
+#the model looks great...normaility, good Ljung-Box stat, ACF looks good too#
+#I'll take a closer look at the ACF and PACF to make sure it's a good fit#
+good_model = sarima(log(ausbeer), 0,1,2, 0,1,1, 4)#
+acf2(good_model$fit$residuals)#
+#looks like all the information was captured by the model, just white noise left#
+#Time to do a little forecasting...say, for the next year (2008 Q4 to 2009 Q3)#
+par(mfrow=c(1,1))#
+#doing the forecast and the graph of the time series w/ forecasted values#
+fore_cast = sarima.for(log(ausbeer), 4, 0,1,2, 0,1,1, 4)#
+#transforming the predicted values from logged values#
+exp(fore_cast$pred)#
+#prediction intervals#
+U = exp(fore_cast$pred + fore_cast$se) #
+L = exp(fore_cast$pred - fore_cast$se)#
+for(i in 1:4){#
+  print(c(L[i],U[i])) #
+}#
+#frequency domain#
+par(mfrow=c(1,1))#
+library(itsmr)#
+#have to make the series stationary to do frequency analysis#
+ausbeer_sta = diff(log(ausbeer))#
+#Creating the periodogram, which is a estimator of spectral density#
+ausbeer.per = spec.pgram(ausbeer_sta, taper=0, log='no')#
+which(ausbeer.per$spec == max(ausbeer.per$spec))#
+#length that spec.pgram used#
+nextn(length(ausbeer))#
+#frequency is multiples of 1/4, remember only goes up to folding freq so double#
+#multiply the max obs by two since the spec.pgram only goes up #
+#to the folding freq#
+#peaks at 1*(1/4) and 2*(1/4)#
+#one cycle every four months and another every two months#
+abline(v=1, lty="dotted")#
+which(ausbeer.per$spec == max(ausbeer.per$spec[-(53:55)]))#
+abline(v=2, lty="dotted")#
+U = qchisq(0.025, 2)#
+L = qchisq(0.975, 2)#
+c(2*ausbeer.per$spec[54]/L, 2*ausbeer.per$spec[54]/U)#
+c(2*ausbeer.per$spec[108]/L, 2*ausbeer.per$spec[108]/U)#
+abline(h=2*ausbeer.per$spec[54]/L, lty="dotted", col='blue')#higher line#
+abline(h=2*ausbeer.per$spec[108]/L, lty="dotted", col='red')#lower line#
+#ausbeer pgram at freq 1/4 = 54/216 and 2/4 = 108/216#
+#looks like both dominant frequencies are significant
+install.packages('fpp')
+install.packages('astsa')
+install.packages('forecast')
+install.packages('itsmr')
+#time domain#
+library(fpp)#
+library(astsa)#
+library(forecast)#
+str(ausbeer)#
+plot(ausbeer)#
+#the mean is not constant, the first diff would be useful#
+plot(diff(ausbeer))#
+#the autovariance of the series looks like it depends on time, a log might help#
+plot(diff(log(ausbeer)))#
+#the plot of that looks better, I'll try some modeling now#
+acf2(diff(log(ausbeer)))#
+#definitely a seasonal component, at least one every two quarters#
+#Since the seasonal compenent tails off, it probably involves an AR(P)#
+#the speed (slow) of this decay suggests a seasonal difference#
+auto.arima(log(ausbeer))#
+#arima(1,1,2)(0,1,1)[4] interesting#
+#I'll start with trying a arima(0,1,1)(0,1,1) since the inbetween seasonal parts#
+#of the PACF are tailing off, a MA(q) must be involved#
+sarima(log(ausbeer), 0,1,1, 0,1,1, 4)#
+#ACF still looks like more than white noise, lets take a closer look#
+#The ACF is cutting off after the first lag so let's try MA(2)#
+sarima(log(ausbeer), 0,1,2, 0,1,1, 4)#
+#the model looks great...normaility, good Ljung-Box stat, ACF looks good too#
+#I'll take a closer look at the ACF and PACF to make sure it's a good fit#
+good_model = sarima(log(ausbeer), 0,1,2, 0,1,1, 4)#
+acf2(good_model$fit$residuals)#
+#looks like all the information was captured by the model, just white noise left#
+#Time to do a little forecasting...say, for the next year (2008 Q4 to 2009 Q3)#
+par(mfrow=c(1,1))#
+#doing the forecast and the graph of the time series w/ forecasted values#
+fore_cast = sarima.for(log(ausbeer), 4, 0,1,2, 0,1,1, 4)#
+#transforming the predicted values from logged values#
+exp(fore_cast$pred)#
+#prediction intervals#
+U = exp(fore_cast$pred + fore_cast$se) #
+L = exp(fore_cast$pred - fore_cast$se)#
+for(i in 1:4){#
+  print(c(L[i],U[i])) #
+}#
+#frequency domain#
+par(mfrow=c(1,1))#
+library(itsmr)#
+#have to make the series stationary to do frequency analysis#
+ausbeer_sta = diff(log(ausbeer))#
+#Creating the periodogram, which is a estimator of spectral density#
+ausbeer.per = spec.pgram(ausbeer_sta, taper=0, log='no')#
+which(ausbeer.per$spec == max(ausbeer.per$spec))#
+#length that spec.pgram used#
+nextn(length(ausbeer))#
+#frequency is multiples of 1/4, remember only goes up to folding freq so double#
+#multiply the max obs by two since the spec.pgram only goes up #
+#to the folding freq#
+#peaks at 1*(1/4) and 2*(1/4)#
+#one cycle every four months and another every two months#
+abline(v=1, lty="dotted")#
+which(ausbeer.per$spec == max(ausbeer.per$spec[-(53:55)]))#
+abline(v=2, lty="dotted")#
+U = qchisq(0.025, 2)#
+L = qchisq(0.975, 2)#
+c(2*ausbeer.per$spec[54]/L, 2*ausbeer.per$spec[54]/U)#
+c(2*ausbeer.per$spec[108]/L, 2*ausbeer.per$spec[108]/U)#
+abline(h=2*ausbeer.per$spec[54]/L, lty="dotted", col='blue')#higher line#
+abline(h=2*ausbeer.per$spec[108]/L, lty="dotted", col='red')#lower line#
+#ausbeer pgram at freq 1/4 = 54/216 and 2/4 = 108/216#
+#looks like both dominant frequencies are significant
+#time domain#
+library(fpp)#
+library(astsa)#
+library(forecast)#
+str(ausbeer)#
+plot(ausbeer)#
+#the mean is not constant, the first diff would be useful#
+plot(diff(ausbeer))#
+#the autovariance of the series looks like it depends on time, a log might help#
+plot(diff(log(ausbeer)))#
+#the plot of that looks better, I'll try some modeling now#
+acf2(diff(log(ausbeer)))#
+#definitely a seasonal component, at least one every two quarters#
+#Since the seasonal compenent tails off, it probably involves an AR(P)#
+#the speed (slow) of this decay suggests a seasonal difference#
+auto.arima(log(ausbeer))#
+#arima(1,1,2)(0,1,1)[4] interesting#
+#I'll start with trying a arima(0,1,1)(0,1,1) since the inbetween seasonal parts#
+#of the PACF are tailing off, a MA(q) must be involved#
+sarima(log(ausbeer), 0,1,1, 0,1,1, 4)#
+#ACF still looks like more than white noise, lets take a closer look#
+#The ACF is cutting off after the first lag so let's try MA(2)#
+sarima(log(ausbeer), 0,1,2, 0,1,1, 4)#
+#the model looks great...normaility, good Ljung-Box stat, ACF looks good too#
+#I'll take a closer look at the ACF and PACF to make sure it's a good fit#
+good_model = sarima(log(ausbeer), 0,1,2, 0,1,1, 4)#
+acf2(good_model$fit$residuals)#
+#looks like all the information was captured by the model, just white noise left#
+#Time to do a little forecasting...say, for the next year (2008 Q4 to 2009 Q3)#
+par(mfrow=c(1,1))#
+#doing the forecast and the graph of the time series w/ forecasted values#
+fore_cast = sarima.for(log(ausbeer), 4, 0,1,2, 0,1,1, 4)#
+#transforming the predicted values from logged values#
+exp(fore_cast$pred)#
+#prediction intervals#
+U = exp(fore_cast$pred + fore_cast$se) #
+L = exp(fore_cast$pred - fore_cast$se)#
+for(i in 1:4){#
+  print(c(L[i],U[i])) #
+}#
+#frequency domain#
+par(mfrow=c(1,1))#
+library(itsmr)#
+#have to make the series stationary to do frequency analysis#
+ausbeer_sta = diff(log(ausbeer))#
+#Creating the periodogram, which is a estimator of spectral density#
+ausbeer.per = spec.pgram(ausbeer_sta, taper=0, log='no')#
+which(ausbeer.per$spec == max(ausbeer.per$spec))#
+#length that spec.pgram used#
+nextn(length(ausbeer))#
+#frequency is multiples of 1/4, remember only goes up to folding freq so double#
+#multiply the max obs by two since the spec.pgram only goes up #
+#to the folding freq#
+#peaks at 1*(1/4) and 2*(1/4)#
+#one cycle every four months and another every two months#
+abline(v=1, lty="dotted")#
+which(ausbeer.per$spec == max(ausbeer.per$spec[-(53:55)]))#
+abline(v=2, lty="dotted")
+#time domainlibrary(fpp)library(astsa)library(forecast)str(ausbeer)plot(ausbeer)#the mean is not constant, the first diff would be usefulplot(diff(ausbeer))#the autovariance of the series looks like it depends on time, a log might helpplot(diff(log(ausbeer)))#the plot of that looks better, I'll try some modeling nowacf2(diff(log(ausbeer)))#definitely a seasonal component, at least one every two quarters#Since the seasonal compenent tails off, it probably involves an AR(P)#the speed (slow) of this decay suggests a seasonal differenceauto.arima(log(ausbeer))#arima(1,1,2)(0,1,1)[4] interesting#I'll start with trying a arima(0,1,1)(0,1,1) since the inbetween seasonal parts#of the PACF are tailing off, a MA(q) must be involvedsarima(log(ausbeer), 0,1,1, 0,1,1, 4)#ACF still looks like more than white noise, lets take a closer look#The ACF is cutting off after the first lag so let's try MA(2)sarima(log(ausbeer), 0,1,2, 0,1,1, 4)#the model looks great...normality, good Ljung-Box stat, ACF looks good too#I'll take a closer look at the ACF and PACF to make sure it's a good fitgood_model = sarima(log(ausbeer), 0,1,2, 0,1,1, 4)acf2(good_model$fit$residuals)#looks like all the information was captured by the model, just white noise left#Time to do a little forecasting...say, for the next year (2008 Q4 to 2009 Q3)par(mfrow=c(1,1))#doing the forecast and the graph of the time series w/ forecasted valuesfore_cast = sarima.for(log(ausbeer), 4, 0,1,2, 0,1,1, 4)#transforming the predicted values from logged valuesexp(fore_cast$pred)#prediction intervalsU = exp(fore_cast$pred + fore_cast$se) L = exp(fore_cast$pred - fore_cast$se)for(i in 1:4){  print(c(L[i],U[i])) }#frequency domainpar(mfrow=c(1,1))library(itsmr)#have to make the series stationary to do frequency analysisausbeer_sta = diff(log(ausbeer))#Creating the periodogram, which is an estimator of spectral densityausbeer.per = spec.pgram(ausbeer_sta, taper=0, log='no')which(ausbeer.per$spec == max(ausbeer.per$spec))#length that spec.pgram usednextn(length(ausbeer))#frequency is multiples of 1/4, remember only goes up to folding #peaks at 1*(1/4) and 2*(1/4)#one cycle every four months and another every two monthsabline(v=1, lty="dotted")which(ausbeer.per$spec == max(ausbeer.per$spec[-(53:55)]))abline(v=2, lty="dotted")
+U = qchisq(0.025, 2)#
+L = qchisq(0.975, 2)#
+c(2*ausbeer.per$spec[54]/L, 2*ausbeer.per$spec[54]/U)#
+c(2*ausbeer.per$spec[108]/L, 2*ausbeer.per$spec[108]/U)#
+abline(h=2*ausbeer.per$spec[54]/L, lty="dotted", col='blue')#higher line#
+abline(h=2*ausbeer.per$spec[108]/L, lty="dotted", col='red')#lower line#
+#ausbeer pgram at freq 1/4 = 54/216 and 2/4 = 108/216#
+#looks like both dominant frequencies are significant
+ls()
+getwd()
+setwd('/Users/nicholaslipanovich/Documents/GitHub/MachineLearnCourseProjects')
+setwd('/Users/nicholaslipanovich/Documents/GitHub/MachineLearningCourseProjects')
+j = read.csv('1987')
+j = read.csv('1987.csv')
+length(j[,1])
+h = j[800000,]
+?write.csv
+write.csv(h, '1987.csv')
+j = read.csv('1987.csv')
+length(j[,1])
+j = read.csv('1987.csv')
+h = j[1:800000,]
+length(h[,1])
+length(h[1,])
+write.csv(h, '1987.csv')
