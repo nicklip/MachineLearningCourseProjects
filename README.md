@@ -8,7 +8,7 @@ This course covered the following topics:
 * Feature Scaling   
 * R Programming   
 * K-NN  
-* Naive Bayes and text classification  
+* Naive Bayes and Text Classification  
 * Decision Trees and Rules  
 * Sparce Matrices  
 * Linear Regression  
@@ -17,9 +17,10 @@ This course covered the following topics:
 * Artificial Neural Networks  
 * Support Vector Machines (SVMs)  
 * Regularization  
-* Parallel Processing  
+* Parallel Processing and Distributed Systems  
 * Parameter Tuning  
 * Boosting, Bagging, and Ensembles  
 * Affinity Analysis and Association Rules  
 * Clustering and K-Means  
-* Cross-validation
+* Cross-validation  
+* MySQL and Relational Databases
